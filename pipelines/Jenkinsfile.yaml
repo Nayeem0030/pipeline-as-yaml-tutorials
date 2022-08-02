@@ -7,7 +7,7 @@ pipeline:
   agent:
     any:
   tools:
-    maven: default
+    maven: maven3.8.6
   stages:
     - stage: Checkout
       steps:
