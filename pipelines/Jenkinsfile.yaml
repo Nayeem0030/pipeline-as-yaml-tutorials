@@ -21,13 +21,4 @@ pipeline:
           steps:
             script:
               - sh "mvn clean test -Dusers=${USERS}"
-    - stage: Install
-          steps:
-            script:
-              - withCredentials: "[usernamePassword(credentialsId: '4df35022-a000-4782-baf5-0adbecbacc6b', passwordVariable: 'PASSOWRD', usernameVariable: 'USERNAME')]"
-                script:
-                - sh "mvn clean install -DskipTest -Dusername=${USERNAME} -Dpassword=${PASSWORD}"
-              - withEnv: "['API_URL=https://api.ipify.org?format=json']"
-                script:
-                  - sh "curl ${API_URL}"     
-        
+    
